@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>farmer</title>
+    <link rel="stylesheet" type="text/css" href="Signin.css">
+    <script src="signin.js"></script>
+</head>
+<body class="signin_body">
+    <div class="center">
+        <div class=" farmer" id="farmerDiv">
+            <h1>Register as Farmer</h1>
+            <form id="farmerForm" action="demo.jsp"  method="post">
+                First Name : <input type="text" id="firstname" name="fN" required><br>
+                Last Name : <input type="text" id="lastname" name="lN" required><br>
+                Phone Number : <input type="text" id="phonenumber" pattern="[0-9]*" name="pN" required><br>
+                Email : <input type="text" id="emailid" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="eM" required><br>
+                Farm Details : <input type="text" id="farmdetails" name="fD" required><br>
+                Registration Date : <input type="date" id="registrationdate" name="rD" required><br>
+                Address : <input type="text" id="address" name="add" required><br>
+                City : <input type="text" id="city" name="ct" required><br>
+                State : <input type="text" id="state" name="st" required><br>
+                Country : <input type="text" id="country" name="cntry" required><br>
+                Pincode : <input type="text" id="pincode" pattern="[0-9]*" name="pc" required><br>
+                Re-enter Email :&nbsp; <input type="text" name="email" required><br>
+				Enter Password :&nbsp; <input type="password" name="pass" required><br>
+				Re-Enter Password : &nbsp; <input type="password" name="cpass" required><br>
+				<input type="submit" value="Enter"> 
+            </form>
+        </div>
+    </div>
+</body>
+</html>

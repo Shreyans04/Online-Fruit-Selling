@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>customer</title>
+    <link rel="stylesheet" type="text/css" href="Signin.css">
+    <script src="signin.js"></script>
+    </script>
+</head>
+<body class="signin_body">
+    <div class="center">
+        <div class=" customer" id="customerDiv">
+            <h1>Register as Customer <br><br></h1>
+            <form id="customerForm" action="customersignup.jsp" >
+                First Name : <input type="text" id="firstname" name="fN" required> <br>
+                Last Name : <input type="text" id="lastname" name="lN" required><br>
+                Phone Number (+91) : <input type="text" maxlength="10" id="phonenumber" name="pN" pattern="[0-9]*" required><br>
+                Email ID : <input type="text" id="emailid" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="eM" required><br>
+                Registration Date : <input type="date" id="registrationdate" name="rD" required><br>
+                <input type="submit" value="Next" onclick="return validateCustomer()"><br>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

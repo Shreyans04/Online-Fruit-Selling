@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shetkari Bagg</title>
+    <link rel="stylesheet"
+     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" type="text/css" href="Signin.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script>
+        function saveLocation() {
+            const selectedLocation = document.getElementById('locationId').value;
+            localStorage.setItem('selectedLocation', selectedLocation);
+            window.location.href = 'main.jsp';
+        }
+    </script>
+    <style>
+        body {
+            background-image: url('1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover; 
+        };
+
+        .location {
+            position: absolute;
+        };
+    </style>
+</head>
+<body>    
+    <div class="location" id="locationDiv"><br>
+        <h2>Welcome to Shetkari Bagg</h2>
+        <p><h3>Please Select your Location</h3></p>
+        <select name="" id="locationId">            
+            <option value="Pune">Pune</option>
+            
+        </select>
+        <button class="btn" id="submitId" onclick="saveLocation();">Submit</button>
+        <br>
+    </div>    
+</body>
+</html>

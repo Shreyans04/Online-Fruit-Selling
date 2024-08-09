@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address</title>
+    <link rel="stylesheet" type="text/css" href="Signin.css">
+    <script src="signin.js"></script>
+</head>
+<body class="signin_body">
+    <div class="center">
+        <div class="address" id="addressDiv">
+            <h1>Enter your Address</h1>
+            <form id="addressForm" action="caddress.jsp" >
+                Address : <input type="text" id="address" name="add" required><br>
+                City : <input type="text" id="city" name="ct" required><br>
+                State : <input type="text" id="state" name="st" required><br>
+                Country : <input type="text" id="country" name="cntry" required><br>
+                Pincode : <input type="text" id="pincode" pattern="[0-9]*" name="pc" required><br>
+                <input type="submit" value="Submit"><br>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

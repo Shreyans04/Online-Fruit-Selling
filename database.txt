@@ -1,0 +1,157 @@
+use backend;
+drop table farmer;
+drop table flocation;
+drop table flogin;
+drop table farmer_location_login;
+drop table product;
+drop table customer;
+drop table clocation;
+drop table clogin;
+drop table customer_location_login;
+
+
+create table farmer(
+farmerId int auto_increment,
+firstName varchar(255),
+lastName varchar(255),
+phoneNumber long,
+emailId varchar(255),
+farmDetails varchar(255),
+registrationDate date,
+constraint farmer_pk primary key (farmerId)
+);
+desc farmer;
+select * from farmer;
+
+create table flocation(
+locationId int auto_increment,
+address varchar(255),
+city varchar(255),
+state varchar(255),
+country varchar(255),
+pincode int,
+constraint flocation_pk primary key (locationId)
+);
+desc flocation;
+select * from flocation;
+
+create table flogin(
+loginId int auto_increment,
+username varchar(255),
+pass varchar(255),
+constraint flogin_pk primary key (loginId,username)
+);
+desc flogin;
+select * from flogin;
+
+CREATE TABLE farmer_location_login (
+    farmerId INT,
+    locationId INT,
+    loginId INT,
+    PRIMARY KEY (farmerId, locationId, loginId),
+    FOREIGN KEY (farmerId) REFERENCES farmer(farmerId),
+    FOREIGN KEY (locationId) REFERENCES flocation(locationId),
+    FOREIGN KEY (loginId) REFERENCES flogin(loginId)
+);
+desc farmer_location_login;
+select * from farmer_location_login;
+
+create table product(
+productId int auto_increment,
+fruitname varchar(255),
+quantity int,
+descrip varchar(255),
+pricepu int,
+image varchar(255),
+constraint product_pk primary key(productId)
+);
+desc product;
+select * from product;
+
+create table customer(
+customerId int auto_increment,
+firstName varchar(255),
+lastName varchar(255),
+phoneNumber long,
+emailId varchar(255),
+registrationDate date,
+constraint farmer_pk primary key (customerId)
+);
+desc customer;
+select * from customer;
+
+create table clocation(
+locationId int auto_increment,
+address varchar(255),
+city varchar(255),
+state varchar(255),
+country varchar(255),
+pincode int,
+constraint flocation_pk primary key (locationId)
+);
+desc clocation;
+select * from clocation;
+
+create table clogin(
+loginId int auto_increment,
+username varchar(255),
+pass varchar(255),
+constraint flogin_pk primary key (loginId,username)
+);
+desc clogin;
+select * from clogin;
+
+CREATE TABLE customer_location_login (
+    customerId INT,
+    locationId INT,
+    loginId INT,
+    PRIMARY KEY (customerId, locationId, loginId),
+    FOREIGN KEY (customerId) REFERENCES customer(customerId),
+    FOREIGN KEY (locationId) REFERENCES clocation(locationId),
+    FOREIGN KEY (loginId) REFERENCES clogin(loginId)
+);
+desc customer_location_login;
+select * from customer_location_login;
+
+delete from product where productId=7;
+
+create table cart(
+cartId int auto_increment,
+customerId int,
+productId int,
+productname varchar(255),
+quantity int,
+pricepu int,
+constraint cartpl primary key(cartId),
+foreign key (customerId) references customer(customerId),
+foreign key (productId) references product(productId)
+);
+desc cart;
+select * from cart;
+drop table cart;
+ 
+ create table ordertb(
+orderId int auto_increment,
+customerId int,
+productname varchar(255),
+totalprice int,
+quantity int,
+constraint ordertbpk primary key(orderId),
+foreign key (customerId) references customer(customerId)
+); 
+desc ordertb;
+select * from ordertb;
+
+create table farmerproduct(
+farmerId int,
+productId int,
+foreign key (farmerId) references farmer(farmerId),
+foreign key (productId) references product(productId) 
+);
+select * from farmerproduct;
+
+SELECT farmerId FROM farmer WHERE farmerId IN (SELECT farmerId FROM flogin WHERE username = 'shreyansdeolasi209@gmail.com');
+delete from farmerproduct where productId=7;
+delete from product where productId=7;
+
+update product set fruitname='Apricot-Dried' where productId=1;

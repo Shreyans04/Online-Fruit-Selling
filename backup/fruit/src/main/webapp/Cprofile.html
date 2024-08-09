@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Profile</title>
+    <!-- <link rel="stylesheet" href="Signin.css"> -->
+</head>
+<body>
+    <header>
+        <h1 id="customerName">Welcome, Loading...</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Personal Information</h2>
+            <ul id="personalInfo">
+                <!-- Data will be loaded here -->
+            </ul>
+        </section>
+        <section>
+            <h2>Order History</h2>
+            <ul id="orderHistory">
+                <!-- Data will be loaded here -->
+            </ul>
+        </section>
+        <section>
+            <h2>Settings</h2>
+            <ul>
+                <li><a href="#">Edit Profile</a></li>
+                <li><a href="#">Change Password</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2024, Shetkari Bagg | <a href="#">Privacy Policy</a> | <a href="#">Sitemap</a> | <a href="#">Terms & Conditions</a></p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    fetch('/customer/1') // Assuming customer ID is 1
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('customerName').textContent = `Welcome, ${data.name}`;
+            document.getElementById('personalInfo').innerHTML = `
+                <li><strong>Name:</strong> ${data.name}</li>
+                <li><strong>Email:</strong> ${data.email}</li>
+                <li><strong>Phone:</strong> ${data.phone}</li>
+                <li><strong>Address:</strong> ${data.address}</li>
+            `;
+            document.getElementById('orderHistory').innerHTML = data.orders.map(order => `
+                <li>Order #${order.id}: ${order.details}</li>
+            `).join('');
+        })
+        .catch(error => console.error('Error fetching customer data:', error));
+});
+
+    </script>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #74a861;
+}
+
+header {
+    background-color: #2a8412;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+footer {
+    background-color: #2b861b;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+    </style>
+</body>
+</html>

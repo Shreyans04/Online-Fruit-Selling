@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="Signin.css">
+<title>Farmer Profile</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 150px auto;
+        padding: 20px;
+        border: 1px solid #110707;
+        border-radius: 5px;
+    }
+    h1 {
+        text-align: center;
+    }
+    .profile {
+        margin-top: 20px;
+    }
+    .profile label {
+        font-weight: bold;
+    }
+    .profile p {
+        margin: 5px 0;
+    }
+</style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="tophead">
+            <h1>Shetkari Bagg</h1>
+            <a href="farmer.html" class="logout">Logout</a>
+            <a href="farmer.html" class="login">Login</a>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#" >Dashboard</a></li>
+                <li><a href="#" >Orders</a></li>
+                <li><a href="FDashboard.html" >Products</a></li>
+                <li><a href="#profile">Profile</a></li>
+            </ul>
+        </div>
+        </div>
+    <div class="container">
+        <h1>Farmer Profile</h1>
+        <div class="profile">
+            <label for="name">Name:</label>
+            <p id="name"></p>
+
+            <label for="email">Email:</label>
+            <p id="email"></p>
+
+            <label for="phone">Phone:</label>
+            <p id="phone"></p>
+
+            <label for="address">Address:</label>
+            <p id="address"></p>
+        </div>
+    </div>
+
+    <script>
+        // Sample farmer profile data
+        const profileData = {
+            name: 'Shreyans Deolasi',
+            email: 'shetkaribagg@gmail.com',
+            phone: '123-456-7890',
+            address: '123 Farm Road, Farmville'
+        };
+
+        // Update the profile information in the HTML
+        document.getElementById('name').innerText = profileData.name;
+        document.getElementById('email').innerText = profileData.email;
+        document.getElementById('phone').innerText = profileData.phone;
+        document.getElementById('address').innerText = profileData.address;
+    </script>
+    <div class="footer">
+        <p align="center">&copy; 2024 Farmer Dashboard. All Rights Reserved.</p>
+    </div>
+</body>
+</html>
