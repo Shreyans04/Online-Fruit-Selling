@@ -22,6 +22,5 @@ Open the project in your preferred IDE.
 Run the backend server and open the website in your browser.
 Contributing
 Contributions are welcome! Please fork this repository and submit a pull request with your changes.
+![image](https://github.com/user-attachments/assets/c07a8b55-dc83-44fd-adc9-bfa61477b569)
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
